@@ -28,8 +28,129 @@ In **non-linear data structures**, elements are connected in a hierarchical or c
 | **Hashing**  | Uses **key-value pairs** for efficient data retrieval. Example: Hash Tables, HashMaps. |
 
 ---
+## **Step-by-Step Implementation of Stack in Python**
 
-### **Conclusion**  
-Choosing the right **data structure** depends on the problem you want to solve. Linear structures are useful for simple sequential storage, while non-linear structures handle complex relationships.  
+We will implement a **stack** step by step using a Python list.  
+A **stack** follows the **LIFO (Last In, First Out)** principle.
 
-Would you like **detailed explanations** or **animated visualizations** for any of these? 🚀
+---
+
+### **📌 Step 1: Create a Stack Class**
+First, define a `Stack` class that will store elements.
+
+```python
+class Stack:
+    def __init__(self):  
+        self.stack = []  # Initialize an empty list to store elements
+```
+
+- We define a class `Stack` and initialize an **empty list** to store stack elements.
+
+---
+
+### **📌 Step 2: Implement the Push Operation**
+The **push()** method adds an element to the top of the stack.
+
+```python
+def push(self, item):
+    self.stack.append(item)
+    print(f"Pushed {item} to stack")
+```
+
+- This method **appends** an element to the list.
+
+---
+
+### **📌 Step 3: Implement the Pop Operation**
+The **pop()** method removes and returns the top element.
+
+```python
+def pop(self):
+    if self.is_empty():
+        return "Stack Underflow: No elements to pop"
+    return self.stack.pop()
+```
+
+- First, it **checks if the stack is empty** to prevent errors.
+- Then, it **removes the last element** using `pop()`.
+
+---
+
+### **📌 Step 4: Implement the Peek Operation**
+The **peek()** method returns the **top element** without removing it.
+
+```python
+def peek(self):
+    if self.is_empty():
+        return "Stack is empty"
+    return self.stack[-1]
+```
+
+- This method **accesses the last element** using `self.stack[-1]`.
+
+---
+
+### **📌 Step 5: Implement the isEmpty and Size Methods**
+Check if the stack is **empty** and get the **size**.
+
+```python
+def is_empty(self):
+    return len(self.stack) == 0
+
+def size(self):
+    return len(self.stack)
+```
+
+---
+
+### **📌 Step 6: Complete Stack Implementation**
+Now, we **combine all methods** into a single class.
+
+```python
+class Stack:
+    def __init__(self):  
+        self.stack = []
+
+    def push(self, item):
+        self.stack.append(item)
+        print(f"Pushed {item} to stack")
+
+    def pop(self):
+        if self.is_empty():
+            return "Stack Underflow: No elements to pop"
+        return self.stack.pop()
+
+    def peek(self):
+        if self.is_empty():
+            return "Stack is empty"
+        return self.stack[-1]
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def size(self):
+        return len(self.stack)
+
+# Example Usage
+s = Stack()
+s.push(10)  # Pushed 10
+s.push(20)  # Pushed 20
+s.push(30)  # Pushed 30
+print("Top element:", s.peek())  # Output: 30
+print("Popped:", s.pop())  # Output: 30
+print("Stack size:", s.size())  # Output: 2
+print("Is stack empty?", s.is_empty())  # Output: False
+```
+
+---
+
+### **✅ Summary of Stack Operations**
+| Operation | Description |
+|-----------|-------------|
+| `push(item)` | Adds `item` to the top of the stack. |
+| `pop()` | Removes and returns the top element. |
+| `peek()` | Returns the top element without removing it. |
+| `is_empty()` | Checks if the stack is empty. |
+| `size()` | Returns the number of elements in the stack. |
+
+
