@@ -148,13 +148,117 @@ print("Is stack empty?", s.is_empty())  # Output: False
 
 ---
 
-### **✅ Summary of Stack Operations**
-| Operation | Description |
-|-----------|-------------|
-| `push(item)` | Adds `item` to the top of the stack. |
-| `pop()` | Removes and returns the top element. |
-| `peek()` | Returns the top element without removing it. |
-| `is_empty()` | Checks if the stack is empty. |
-| `size()` | Returns the number of elements in the stack. |
+---
 
+### **📌 Step 1: Create a Queue Class**  
+First, define a `Queue` class that will store elements.
 
+```python
+class Queue:
+    def __init__(self):
+        self.queue = []  # Initialize an empty list to store elements
+```
+
+- We define a class `Queue` and initialize an **empty list** to store queue elements.
+
+---
+
+### **📌 Step 2: Implement the Enqueue Operation**  
+The **enqueue()** method adds an element to the end of the queue.
+
+```python
+def enqueue(self, item):
+    self.queue.append(item)
+    print(f"Enqueued {item} to queue")
+```
+
+- This method **appends** an element at the end of the queue.
+
+---
+
+### **📌 Step 3: Implement the Dequeue Operation**  
+The **dequeue()** method removes and returns the front element.
+
+```python
+def dequeue(self):
+    if self.is_empty():
+        print("Queue Underflow: No elements to dequeue")
+    else:
+        print(f"Dequeued: {self.queue.pop(0)}")
+```
+
+- First, it **checks if the queue is empty** to prevent errors.
+- Then, it **removes the first element** using `pop(0)`.
+
+---
+
+### **📌 Step 4: Implement the Front Operation**  
+The **front()** method returns the **first element** without removing it.
+
+```python
+def front(self):
+    if self.is_empty():
+        print("Queue is empty")
+    else:
+        print(f"Front element: {self.queue[0]}")
+```
+
+- This method **accesses the first element** using `self.queue[0]`.
+
+---
+
+### **📌 Step 5: Implement the isEmpty and Size Methods**  
+Check if the queue is **empty** and get the **size**.
+
+```python
+def is_empty(self):
+    return len(self.queue) == 0
+```
+
+```python
+def size(self):
+    print(f"Queue size: {len(self.queue)}")
+```
+
+---
+
+### **📌 Step 6: Complete Queue Implementation**  
+Now, we **combine all methods** into a single class.
+
+```python
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, item):
+        self.queue.append(item)
+        print(f"Enqueued {item} to queue")
+
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue Underflow: No elements to dequeue")
+        else:
+            print(f"Dequeued: {self.queue.pop(0)}")
+
+    def front(self):
+        if self.is_empty():
+            print("Queue is empty")
+        else:
+            print(f"Front element: {self.queue[0]}")
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def size(self):
+        print(f"Queue size: {len(self.queue)}")
+
+# Example Usage
+q = Queue()
+q.enqueue(10)  # Enqueued 10
+q.enqueue(20)  # Enqueued 20
+q.enqueue(30)  # Enqueued 30
+q.front()      # Output: Front element: 10
+q.dequeue()    # Output: Dequeued: 10
+q.size()       # Output: Queue size: 2
+print("Is queue empty?", q.is_empty())  # Output: False
+```
