@@ -53,8 +53,8 @@ The **push()** method adds an element to the top of the stack.
 
 ```python
 def push(self, item):
-    self.stack.append(item)
-    print(f"Pushed {item} to stack")
+        self.stack.append(item)
+        print(f"Pushed {item} to stack")
 ```
 
 - This method **appends** an element to the list.
@@ -65,10 +65,11 @@ def push(self, item):
 The **pop()** method removes and returns the top element.
 
 ```python
-def pop(self):
-    if self.is_empty():
-        return "Stack Underflow: No elements to pop"
-    return self.stack.pop()
+ def pop(self):
+        if self.is_empty():
+            print("Stack Underflow: No elements to pop")
+        else:
+            print(f"Popped: {self.stack.pop()}")
 ```
 
 - First, it **checks if the stack is empty** to prevent errors.
@@ -80,10 +81,11 @@ def pop(self):
 The **peek()** method returns the **top element** without removing it.
 
 ```python
-def peek(self):
-    if self.is_empty():
-        return "Stack is empty"
-    return self.stack[-1]
+ def peek(self):
+        if self.is_empty():
+            print("Stack is empty")
+        else:
+            print(f"Top element: {self.stack[-1]}")
 ```
 
 - This method **accesses the last element** using `self.stack[-1]`.
@@ -94,12 +96,11 @@ def peek(self):
 Check if the stack is **empty** and get the **size**.
 
 ```python
-def is_empty(self):
-    return len(self.stack) == 0
-
-def size(self):
-    return len(self.stack)
+ def is_empty(self):
+        return len(self.stack) == 0
 ```
+def size(self):
+        print(f"Stack size: {len(self.stack)}")
 
 ---
 
@@ -117,29 +118,32 @@ class Stack:
 
     def pop(self):
         if self.is_empty():
-            return "Stack Underflow: No elements to pop"
-        return self.stack.pop()
+            print("Stack Underflow: No elements to pop")
+        else:
+            print(f"Popped: {self.stack.pop()}")
 
     def peek(self):
         if self.is_empty():
-            return "Stack is empty"
-        return self.stack[-1]
+            print("Stack is empty")
+        else:
+            print(f"Top element: {self.stack[-1]}")
 
     def is_empty(self):
         return len(self.stack) == 0
 
     def size(self):
-        return len(self.stack)
+        print(f"Stack size: {len(self.stack)}")
 
 # Example Usage
 s = Stack()
 s.push(10)  # Pushed 10
 s.push(20)  # Pushed 20
 s.push(30)  # Pushed 30
-print("Top element:", s.peek())  # Output: 30
-print("Popped:", s.pop())  # Output: 30
-print("Stack size:", s.size())  # Output: 2
+s.peek()    # Output: Top element: 30
+s.pop()     # Output: Popped: 30
+s.size()    # Output: Stack size: 2
 print("Is stack empty?", s.is_empty())  # Output: False
+
 ```
 
 ---
