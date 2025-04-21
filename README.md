@@ -153,6 +153,55 @@ print("Is stack empty?", s.is_empty())  # Output: False
 ### **📌 Step 1: Create a Queue Class**  
 First, define a `Queue` class that will store elements.
 
+You can implement a queue in Python without using a class by using built-in data structures like a **list** or **collections.deque**. Here's how you can do it both ways:
+
+---
+
+### ✅ Using `list` (not recommended for large queues due to slow `.pop(0)`)
+
+```python
+# Initialize queue
+queue = []
+
+# Enqueue
+queue.append('A')
+queue.append('B')
+queue.append('C')
+
+# Dequeue
+print(queue.pop(0))  # A
+print(queue.pop(0))  # B
+
+# Display current queue
+print(queue)  # ['C']
+```
+
+---
+
+### ✅ Using `collections.deque` (Recommended: Fast O(1) operations)
+
+```python
+from collections import deque
+
+# Initialize queue
+queue = deque()
+
+# Enqueue
+queue.append('A')
+queue.append('B')
+queue.append('C')
+
+# Dequeue
+print(queue.popleft())  # A
+print(queue.popleft())  # B
+
+# Display current queue
+print(queue)  # deque(['C'])
+```
+
+---
+
+
 ```python
 class Queue:
     def __init__(self):
